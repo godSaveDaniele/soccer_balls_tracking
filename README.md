@@ -1,13 +1,14 @@
 # Soccer Ball Detection and Tracking using YOLOv8
 
-## Overview
-This project implements a computer vision system for detecting and tracking a soccer ball in video sequences. The objective is to estimate the ball position frame by frame, even in challenging conditions such as missed detections or temporary occlusions.
+<img width="582" height="328" alt="image" src="https://github.com/user-attachments/assets/32abf826-61b8-47c8-a971-b71f11c9a950" />
 
-The solution combines a YOLOv8-based object detector with a custom tracking and post-processing module that exploits temporal information and visual embeddings.
+
+## Overview
+This project implements a computer vision system for detecting and tracking a soccer ball in video sequences. The objective is to estimate the ball position frame by frame, even in challenging conditions such as temporary occlusions.
+
+The solution combines a YOLOv8-based object detector with a custom post-processing module that exploits temporal information and visual embeddings.
 
 ---
-
-## Dataset
 
 ### Video Data
 - Training set: 4 Full-HD clips (1920×1080)
@@ -15,19 +16,7 @@ The solution combines a YOLOv8-based object detector with a custom tracking and 
 
 Each training video is associated with an XML annotation file containing the ball position for each frame when visible.
 
-### Annotation Filtering
-Annotations are ignored if:
-- `used_in_game = 0`
-- `outside = 1`
 
-Only relevant in-game ball positions are considered.
-
-### Track Definition
-Each contiguous sequence of frames in which the ball appears within a clip is assigned a unique **track ID**.
-
----
-
-## Model Selection
 
 ### YOLOv8 Medium
 The YOLOv8 Medium model was selected as a trade-off between:
@@ -43,15 +32,7 @@ Key motivations:
 
 ## YOLOv8 Architecture Highlights
 
-- Anchor-free detection
-- Three detection scales for objects of different sizes
-- C2F modules for improved feature reuse and accuracy
-- SPPF module for fast multi-scale spatial pooling
-- Task-Aligned Assigner (TAL) for optimal assignment between predictions and ground truth
 
----
-
-## Training Strategy
 
 ### Transfer Learning
 The model is fine-tuned starting from COCO pre-trained weights.
@@ -64,7 +45,6 @@ The model is fine-tuned starting from COCO pre-trained weights.
 
 These values were chosen to balance convergence, generalization, and computational constraints.
 
----
 
 ## Data Augmentation
 
