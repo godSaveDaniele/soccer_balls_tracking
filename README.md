@@ -1,6 +1,7 @@
 # Soccer Ball Detection and Tracking using YOLOv8
 
-[![Demo video](assets/demo_image.png)](assets/demo_video.mp4)
+<img width="1440" height="932" alt="demo_foto" src="https://github.com/user-attachments/assets/d18c5494-0ac6-4311-978e-90a463d56b6a" />
+
 
 
 ## Overview
